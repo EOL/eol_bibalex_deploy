@@ -4,7 +4,6 @@ if [ "$#" -ne 1 ]; then
   exit 1
 fi
 cd
-sudo apt-get install -y debconf-utils
 sudo apt-get -y install mariadb-server-10.1
 sudo mysql -u root -e "use mysql; update user set plugin='' where User='root'; update user set password=PASSWORD('root') where User='root';flush privileges;"
 cd
