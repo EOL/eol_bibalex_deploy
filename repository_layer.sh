@@ -8,8 +8,8 @@ sudo apt-get -y install tomcat8
 sudo touch /etc/authbind/byport/80
 sudo chmod 500 /etc/authbind/byport/80
 sudo chown tomcat8 /etc/authbind/byport/80
-file2=/etc/tomcat8/server.xml
-sed -i 's/Connector port="8080" protocol=/Connector port="80" protocol=/g' $file2
+sudo sed -i 's/Connector port="8080" protocol=/Connector port="80" protocol=/g' /etc/tomcat8/server.xml
+sudo sed -i 's/#AUTHBIND=no/AUTHBIND=yes/g' /etc/default/tomcat8
 sudo service tomcat8 restart
 cd
 wget https://archive.apache.org/dist/hbase/1.2.6/hbase-1.2.6-bin.tar.gz
